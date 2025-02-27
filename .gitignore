@@ -1,0 +1,45 @@
+# Node.js dependencies
+/node_modules
+
+# Angular build artifacts
+/dist
+/.angular/cache
+
+# IDE and editor files
+/.idea
+/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment files
+/src/environments/environment.ts
+/src/environments/environment.prod.ts
+
+# Logs and temporary files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Testing coverage
+/coverage
+
+# Local development files
+/.local
+
+# Package manager files
+package-lock.json
+yarn.lock
+
+# End-to-end test files
+/e2e
+
+# Optional: Ignore local configuration files
+/src/assets/config.json

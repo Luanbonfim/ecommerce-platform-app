@@ -1,0 +1,83 @@
+/* app.component.css */
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global layout */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  header {
+    background-color: #3498db;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a.active {
+    text-decoration: underline;
+  }
+  
+  footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  /* Main content styling */
+  main {
+    padding: 20px;
+  }
+
+  a[routerLink] {
+    cursor: pointer;
+    pointer-events: auto; /* Ensure pointer events are enabled */
+    /* Additional styling as needed */
+  }
+  
+  /* app.component.css */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .contact h3,
+  .social-media a {
+    margin: 10px 0;
+  }
+  
+  .social-media a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+  }
+
+  
+  
+  
