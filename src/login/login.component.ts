@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  ngOnInit() {
+    console.log('LoginComponent initialized');
+  }
 }

@@ -14,8 +14,10 @@
   }
   
   header {
-    background-color: #3498db;
+    background-color: #333;
     padding: 10px;
+    position: fixed;
+    width: 100%;
   }
   
   nav ul {
@@ -45,6 +47,7 @@
   
   /* Main content styling */
   main {
+    display: contents;
     padding: 20px;
   }
 

@@ -1,110 +1,69 @@
 /* General Styles */
 .homepage-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f5f5f5;
-    font-family: 'Arial', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  gap: 20px; /* Space between the columns */
+  padding: 20px;
+  min-height: 100vh; /* Use min-height instead of height for flexibility */
+  justify-items: center; /* Centers the items horizontally */
+  align-items: center; /* Centers the items vertically */
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Switch to a single column on smaller screens */
+    padding: 10px; /* Reduce padding for smaller screens */
   }
-  
-  .hero-section {
-    text-align: center;
-    margin-bottom: 2rem;
+}
+
+.title {
+  text-align: left;
+  max-width: 600px; /* Max width to keep text from spreading too far */
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    text-align: center; /* Center text on smaller screens */
+    max-width: 100%; /* Allow text to take full width on smaller screens */
   }
-  
-  .hero-section h1 {
-    font-size: 2.5rem;
-    color: #333;
+}
+
+.title h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    font-size: 2rem; /* Reduce font size for smaller screens */
   }
-  
-  .hero-section p {
-    font-size: 1.2rem;
-    color: #666;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    margin-bottom: 1rem; /* Reduce margin for smaller screens */
   }
-  
-  .auth-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  color: #333;
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    font-size: 2rem; /* Reduce font size for smaller screens */
   }
-  
-  .login-box h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 1.5rem;
-    text-align: center;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #666;
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    font-size: 1rem; /* Reduce font size for smaller screens */
   }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .form-group label {
-    display: block;
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 0.5rem;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .login-button {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: #0073b1;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-button:hover {
-    background-color: #005f8a;
-  }
-  
-  .oauth-section {
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-  
-  .oauth-section p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
-  }
-  
-  .google-oauth-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.8rem;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .google-oauth-button img {
-    width: 20px;
-    margin-right: 0.5rem;
-  }
-  
-  .google-oauth-button:hover {
-    background-color: #f5f5f5;
-  }
+}

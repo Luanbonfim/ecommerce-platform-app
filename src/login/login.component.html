@@ -1,9 +1,23 @@
-<div >
-    <button  mat-raised-button color="primary">Sign in with Google</button>
+<div  class="login-container">
+  <div class="login-box">
+    <h2>Login</h2>
+    <form class="form-group">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" />
+      </div>
+      <button type="submit" class="login-button">Login</button>
+    </form>
+    <div class="oauth-section">
+      <p>Or login with</p>
+      <button class="google-oauth-button">
+        <img src="assets/google-icon.png" alt="Google Icon" />
+        <span>Login with Google</span>
+      </button>
+    </div>
   </div>
-  
-  <div >
-    <p>Welcome</p>
-    <button>Sign Out</button>
-  </div>
-  
+</div>
