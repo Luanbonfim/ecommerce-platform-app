@@ -1,7 +1,15 @@
-<div class="homepage-container">
+<div *ngIf="isLoading">
+  <p>Loading...</p>
+</div>
+<div *ngIf="!isLoggedIn && !isLoading" class="homepage-container">
   <div class="hero-section">
     <h1>Welcome to Our E-Commerce Platform</h1>
     <p>Discover the best products and services tailored just for you.</p>
-  </div >
+  </div>
     <app-login></app-login>
+</div>
+<div *ngIf="isLoggedIn && !isLoading" class="homepage-container">
+  <div class="hero-section">
+    <p>Welcome back</p>
+  </div>
 </div>
