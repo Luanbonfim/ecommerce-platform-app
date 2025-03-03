@@ -1,16 +1,22 @@
-<div  class="login-container">
+<div class="login-container">
   <div class="login-box">
     <h2>Login</h2>
-    <form class="form-group">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" />
+        <input type="email" id="email" formControlName="email" placeholder="Enter your email" />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+          Email is required.
+        </div>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password" />
+        <input type="password" id="password" formControlName="password" placeholder="Enter your password" />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+          Password is required.
+        </div>
       </div>
-      <button type="submit" class="login-button">Login</button>
+      <button type="submit" [disabled]="loginForm.invalid" class="login-button">Login</button>
     </form>
     <div class="oauth-section">
       <p>Or login with</p>
@@ -18,6 +24,13 @@
         <img src="assets/google-icon.png" alt="Google Icon" />
         <span>Login with Google</span>
       </button>
+    </div>
+    <div class="signup-section">
+      <p>Don't have an account?</p>
+      <button class="signup-button" (click)="onSignUp()">Sign Up</button>
+    </div>
+    <div *ngIf="signUpInvalid" class="error-message">
+      {{ errorMessage }}
     </div>
   </div>
 </div>
