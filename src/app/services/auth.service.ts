@@ -55,7 +55,7 @@ export class AuthService {
 
   googleLogin(): void {
     try {
-      window.location.href = this.baseUrl + apiConfig.endpoints.googlelogin;
+      window.location.href = `${this.baseUrl}${apiConfig.endpoints.googlelogin}?redirectUrl=${encodeURIComponent(apiConfig.redirectUrl)}`;
     } catch (error: unknown) {
       console.error('Error in googleLogin:', error);
     }
