@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { LoginComponent } from '../login/login.component';
 import { AppComponent } from './app.component';
-import { SignupComponent } from '../signup/signup.component';
 import { AuthService } from './services/auth.service';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { AuthService } from './services/auth.service';
       LoginComponent,
       HomepageComponent,
       AppComponent,
-      SignupComponent,
     ],
     imports: [
       BrowserModule,
