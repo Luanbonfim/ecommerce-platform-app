@@ -2,31 +2,29 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button'; 
 import { RouterModule } from '@angular/router';
-import { CommonModule, NgIf } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { LoginComponent } from '../login/login.component';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from '../signup/signup.component';
-
+import { AuthService } from './services/auth.service';
 
 @NgModule({
     declarations: [
-      LoginComponent,  // Declare it here
+      LoginComponent,
       HomepageComponent,
       AppComponent,
-      SignupComponent
+      SignupComponent,
     ],
     imports: [
       BrowserModule,
-      AppRoutingModule,  // Make sure AppRoutingModule is imported
-      MatButtonModule,
-      RouterModule, 
+      AppRoutingModule,
+      MatButtonModule,    
+      RouterModule,
     ],
-    providers: [],
+    providers: [AuthService, OAuthService],
     bootstrap: [AppComponent]
   })
   export class AppModule { }
