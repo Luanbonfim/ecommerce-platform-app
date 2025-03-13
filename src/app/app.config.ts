@@ -16,6 +16,7 @@ export const appConfig: ApplicationConfig = {
 
 export const apiConfig = {
   apiBaseUrl: 'https://localhost:7263/', // Base URL for your API
+  redirectUrl: 'http://localhost:4200', // Frontend redirect URL
   endpoints: {
     login: 'api/auth/login', 
     signup: 'api/auth/createuser',
