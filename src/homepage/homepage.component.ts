@@ -18,11 +18,9 @@ export class HomepageComponent {
 
   ngOnInit(): void {
     this.isLoading = true;
-    console.log('IS LOADING', this.isLoading);
     
     this.authService.isAuthenticated().subscribe({
       next: (loggedIn) => {
-        console.log('CAIU NO SUBSCRIBE isLoggedIn', loggedIn);
         this.isLoggedIn = loggedIn; 
         this.isLoading = false; 
       },

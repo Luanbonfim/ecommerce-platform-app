@@ -49,7 +49,6 @@ export class LoginComponent {
   onSignUp():void{
     const { email, password } = this.loginForm.value;
     const user = { email, password};
-    console.log(user)
     this.authService.signup(user).subscribe({
       next: () => {
         // Redirect to home page on successful login
@@ -60,5 +59,9 @@ export class LoginComponent {
         this.signUpInvalid = true;
       },
     });
+  }
+
+  onGoogleOauthLogin(){
+    this.authService.googleLogin();
   }
 }
