@@ -31,8 +31,8 @@ export class LoginComponent {
       return;
     }
 
-    const { email, password } = this.loginForm.value;
-    const user = { email, password};
+    const { email, password, firstName, lastName} = this.loginForm.value;
+    const user = { email, password, firstName, lastName};
 
     this.authService.login(user).subscribe({
       next: () => {
@@ -47,8 +47,8 @@ export class LoginComponent {
   }
 
   onSignUp():void{
-    const { email, password } = this.loginForm.value;
-    const user = { email, password};
+    const { email, password, firstName, lastName } = this.loginForm.value;
+    const user = { email, password, firstName, lastName};
     this.authService.signup(user).subscribe({
       next: () => {
         // Redirect to home page on successful login

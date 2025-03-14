@@ -18,10 +18,10 @@ export const apiConfig = {
   apiBaseUrl: 'https://localhost:7263/', // Base URL for your API
   redirectUrl: 'http://localhost:4200', // Frontend redirect URL
   endpoints: {
-    login: 'api/auth/login', 
-    signup: 'api/auth/createuser',
-    checkauth: 'api/auth/checkauth',
-    logout: 'api/auth/logout',
-    googlelogin: 'api/auth/google-login',
+    login: 'api/v1/auth/login', 
+    signup: 'api/v1/auth/createuser',
+    checkauth: 'api/v1/auth/checkauth',
+    logout: 'api/v1/auth/logout',
+    googlelogin: 'api/v1/auth/google-login',
   },
 };
