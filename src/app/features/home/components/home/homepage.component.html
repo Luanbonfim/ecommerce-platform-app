@@ -10,7 +10,7 @@
 </div>
 <div *ngIf="isLoggedIn && !isLoading" class="logged-in-homepage--container ">
   <div class="hero-section">
-    <p>Welcome back, {{ currentUser?.email }}</p>
+    <p>Welcome back, {{ currentUser?.firstName ?  currentUser?.firstName + " " + currentUser?.lastName : currentUser?.email }}</p>
     <app-products-list></app-products-list>
   </div>
 </div>
