@@ -24,4 +24,8 @@ export class ProductsService {
   updateProduct(id: number, product: Partial<Product>): Observable<Product> {
     return this.http.put<Product>(`${this.baseUrl}${apiConfig.endpoints.products.products}/${id}`, product, this.httpOptions);
   }
+
+  deleteProduct(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}${apiConfig.endpoints.products.products}/${id}`, this.httpOptions);
+  }
 }
