@@ -58,4 +58,19 @@ export class ProductsListComponent implements OnInit {
     this.closeModal();
     this.loadProducts(); // Reload products after adding/updating
   }
+
+  deleteProduct(product: Product, event: Event): void {
+    event.stopPropagation(); // Prevent opening edit modal when clicking delete
+    if (confirm(`Are you sure you want to delete "${product.name}"?`)) {
+      this.productsService.deleteProduct(product.id).subscribe({
+        next: () => {
+          this.loadProducts(); // Reload products after deletion
+        },
+        error: (error) => {
+          this.error = 'Failed to delete product. Please try again.';
+          console.error('Error deleting product:', error);
+        }
+      });
+    }
+  }
 }
