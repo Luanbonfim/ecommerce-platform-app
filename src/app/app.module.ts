@@ -5,10 +5,10 @@ import { RouterModule } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HomepageComponent } from '../homepage/homepage.component';
-import { LoginComponent } from '../login/login.component';
+import { HomepageComponent } from './features/home/components/home/homepage.component';
 import { AppComponent } from './app.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './services/auth/auth.service';
+import { LoginComponent } from './features/auth/components/login/login.component';
 
 @NgModule({
     declarations: [

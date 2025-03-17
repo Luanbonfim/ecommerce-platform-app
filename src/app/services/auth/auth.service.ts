@@ -5,8 +5,8 @@ import { OAuthService } from 'angular-oauth2-oidc';
 
 import { BehaviorSubject, catchError, map, Observable, of, tap } from 'rxjs';
 import { oauthConfig } from './oAuth/oauth.config';
-import { apiConfig } from '../app.config';
-import { User } from '../models/user.model';
+import { apiConfig } from '../../app.config';
+import { User } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,12 +15,18 @@ import { User } from '../models/user.model';
 export class AuthService {
   private baseUrl = apiConfig.apiBaseUrl; // Replace with your API login endpoint
   private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private userSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient
     , private router: Router
     , private oauthService: OAuthService) {
     this.configureAuth();
     this.isAuthenticated().subscribe();
+  }
+
+  // Get current user state
+  get currentUser(): Observable<User | null> {
+    return this.userSubject.asObservable();
   }
 
   private configureAuth() {
@@ -34,6 +40,7 @@ export class AuthService {
       this.oauthService.loadDiscoveryDocumentAndTryLogin().then(() => {
         if (this.oauthService.hasValidAccessToken()) {
           this.isLoggedInSubject.next(true);
+          // You might want to fetch user data here
         }
       });
     } catch (error) {
@@ -47,10 +54,13 @@ export class AuthService {
 
   // Method to log in
   login(user: User): Observable<any> {
-    // Use `withCredentials: true` to allow cookies
     return this.http.post(this.baseUrl + apiConfig.endpoints.login, user, {
       withCredentials: true,
-    })
+    }).pipe(
+      tap((response: any) => {
+        this.userSubject.next(response.data); // Assuming the API returns user data
+      })
+    );
   }
 
   googleLogin(): void {
@@ -70,6 +80,7 @@ export class AuthService {
         next: () => {
           this.oauthService.logOut();
           this.isLoggedInSubject.next(false);
+          this.userSubject.next(null); // Clear user data on logout
           this.router.navigate(['/']).then(() => { window.location.reload(); });
         },
         error: (error) => {
@@ -90,14 +101,18 @@ export class AuthService {
     return this.http.get<any>(this.baseUrl + apiConfig.endpoints.checkauth, {
       withCredentials: true,
     }).pipe(
-      map(() => {
+      map((response) => {
         const isAuth = true;
-        this.isLoggedInSubject.next(isAuth); // Update BehaviorSubject
-        return isAuth; // Ensure boolean return
+        this.isLoggedInSubject.next(isAuth);
+        if (response) {
+          this.userSubject.next(response); // Update user data if available
+        }
+        return isAuth;
       }),
       catchError(() => {
         this.isLoggedInSubject.next(false);
-        return of(false); // Return false on error
+        this.userSubject.next(null); // Clear user data on error
+        return of(false);
       })
     );
   }
