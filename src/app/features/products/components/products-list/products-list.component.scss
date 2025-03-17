@@ -38,10 +38,15 @@
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: #27ae60;
+  }
+
+  &:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
   }
 
   .plus-icon {
@@ -126,7 +131,7 @@
       right: 0.5rem;
       background: none;
       border: none;
-      color: #636262;
+      color: #e74c3c;
       cursor: pointer;
       padding: 0.5rem;
       border-radius: 50%;
@@ -135,9 +140,14 @@
       align-items: center;
       justify-content: center;
 
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: rgba(231, 76, 60, 0.1);
         transform: scale(1.1);
+      }
+
+      &:disabled {
+        color: #95a5a6;
+        cursor: not-allowed;
       }
 
       svg {

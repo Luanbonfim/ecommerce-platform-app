@@ -1,7 +1,7 @@
 <div class="products-container" [class.modal-open]="showModal">
   <div class="header">
     <h2>Products</h2>
-    <button class="add-product-btn" (click)="openAddProductModal()">
+    <button class="add-product-btn" (click)="openAddProductModal()" [disabled]="!isAdmin">
       <span class="plus-icon">+</span>
       Add Product
     </button>
@@ -18,10 +18,14 @@
 
   <div *ngIf="!loading && !error" class="products-grid">
     <div *ngFor="let product of products" class="product-tile">
-      <div class="product-content" (click)="openEditProductModal(product)">
+      <div class="product-content" (click)="isAdmin && openEditProductModal(product)">
         <h3>{{ product.name }}</h3>
         <p class="price">${{ product.price }}</p>
-        <button class="delete-btn" (click)="deleteProduct(product, $event)" title="Delete product">
+        <button 
+          class="delete-btn" 
+          (click)="deleteProduct(product, $event)" 
+          [disabled]="!isAdmin"
+          title="Delete product">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 6h18"></path>
             <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
@@ -35,6 +39,7 @@
   <app-product-modal 
     *ngIf="showModal"
     [product]="selectedProduct"
+    [isAdmin]="isAdmin"
     (closeModal)="closeModal()"
     (productAdded)="onProductAdded()">
   </app-product-modal>

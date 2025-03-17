@@ -13,6 +13,7 @@ import { Product } from '../../../../models/product.model';
 })
 export class ProductModalComponent {
   @Input() product?: Product;
+  @Input() isAdmin: boolean = false;
   @Output() closeModal = new EventEmitter<void>();
   @Output() productAdded = new EventEmitter<void>();
   
@@ -41,7 +42,7 @@ export class ProductModalComponent {
   }
 
   onSubmit(): void {
-    if (this.productForm.valid) {
+    if (this.productForm.valid && this.isAdmin) {
       this.loading = true;
       this.error = null;
 
