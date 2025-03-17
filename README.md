@@ -4,6 +4,7 @@ Welcome to **My Angular E-Commerce Platform**! This is a modern, user-friendly e
 ![image](https://github.com/user-attachments/assets/c1ba475f-04bf-45a6-aa27-323ffafaed2b)
 
 ![image](https://github.com/user-attachments/assets/1a20be9a-b435-4ef8-b6f6-e2353207748e)
+![image](https://github.com/user-attachments/assets/b8ff9c0b-ded4-4b9c-8755-a2235510d974)
 
 
 
