@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsService } from '../../services/products.service';
+
 import { Product } from '../../../../models/product.model';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
+import { AuthService } from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-products-list',
@@ -17,11 +19,20 @@ export class ProductsListComponent implements OnInit {
   error: string | null = null;
   showModal: boolean = false;
   selectedProduct?: Product;
+  isAdmin: boolean = false;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.loadProducts();
+    this.checkAdminRole();
+  }
+
+  private checkAdminRole(): void {
+    this.isAdmin = this.authService.getCurrentUserRoles().includes('Admin');
   }
 
   private loadProducts(): void {

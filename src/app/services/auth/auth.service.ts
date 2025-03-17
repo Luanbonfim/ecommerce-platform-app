@@ -116,4 +116,12 @@ export class AuthService {
       })
     );
   }
+
+  getCurrentUser(): User | null {
+    return this.userSubject.value;
+  }
+
+  getCurrentUserRoles(): string[] {
+    return this.userSubject.value?.roles ?? [];
+  }
 }
