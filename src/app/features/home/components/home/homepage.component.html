@@ -1,4 +1,4 @@
-<div *ngIf="isLoading">
+<div class="hero-section" *ngIf="isLoading">
   <p>Loading...</p>
 </div>
 <div *ngIf="!isLoggedIn && !isLoading" class="homepage-container">
@@ -8,8 +8,9 @@
   </div>
     <app-login></app-login>
 </div>
-<div *ngIf="isLoggedIn && !isLoading" class="homepage-container">
+<div *ngIf="isLoggedIn && !isLoading" class="logged-in-homepage--container ">
   <div class="hero-section">
-    <p>Welcome back</p>
+    <p>Welcome back, {{ currentUser?.email }}</p>
+    <app-products-list></app-products-list>
   </div>
 </div>

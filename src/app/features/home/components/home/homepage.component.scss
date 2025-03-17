@@ -17,6 +17,10 @@
   }
 }
 
+.logged-in-homepage--container {
+  padding: 50px;
+}
+
 .title {
   text-align: left;
   max-width: 600px; /* Max width to keep text from spreading too far */
@@ -41,6 +45,7 @@
 .hero-section {
   text-align: center;
   margin-bottom: 2rem;
+  width: 100%;
 
   /* Responsive adjustments */
   @media (max-width: 768px) {

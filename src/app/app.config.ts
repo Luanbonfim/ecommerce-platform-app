@@ -23,5 +23,8 @@ export const apiConfig = {
     checkauth: 'api/v1/auth/checkauth',
     logout: 'api/v1/auth/logout',
     googlelogin: 'api/v1/auth/google-login',
+    products:{
+      products: 'api/v1/products',
+    }
   },
 };

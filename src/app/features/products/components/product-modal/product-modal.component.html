@@ -1,0 +1,49 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>{{ modalTitle }}</h2>
+      <button class="close-button" (click)="onCancel()">×</button>
+    </div>
+
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          formControlName="name" 
+          placeholder="Enter product name"
+          [class.error]="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+        <div class="error-message" *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+          <span *ngIf="productForm.get('name')?.errors?.['required']">Name is required</span>
+          <span *ngIf="productForm.get('name')?.errors?.['minlength']">Name must be at least 3 characters</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input 
+          type="number" 
+          id="price" 
+          formControlName="price" 
+          placeholder="Enter price"
+          [class.error]="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+        <div class="error-message" *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+          <span *ngIf="productForm.get('price')?.errors?.['required']">Price is required</span>
+          <span *ngIf="productForm.get('price')?.errors?.['min']">Price must be greater than 0</span>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="submit-button" [disabled]="productForm.invalid || loading">
+          {{ submitButtonText }}
+        </button>
+      </div>
+
+      <div class="error-message" *ngIf="error">
+        {{ error }}
+      </div>
+    </form>
+  </div>
+</div>
