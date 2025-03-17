@@ -10,7 +10,7 @@ Welcome to **My Angular E-Commerce Platform**! This is a modern, user-friendly e
 
 ## Features
 
-- **Beautiful Homepage**: A clean and modern homepage inspired by LinkedIn.
+- **Beautiful Homepage**: A clean and modern homepage.
 - **Login System**: A login form with email and password fields.
 - **Google OAuth Login**: Allows login through google account.
 - **Responsive Design**: The application is fully responsive and works seamlessly on all devices.
