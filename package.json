@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:ssl": "ng serve --ssl --ssl-cert ssl/localhost.crt --ssl-key ssl/localhost.key",
+    "start:ssl": "ng serve --ssl --ssl-cert ssl/localhost.crt --ssl-key ssl/localhost.key --host 0.0.0.0",
     "generate-ssl": "node scripts/generate-ssl.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

@@ -1,5 +1,5 @@
-# Build stage
-FROM node:20-alpine AS build
+# Use Node.js image
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
@@ -20,20 +20,14 @@ ENV GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID
 # Replace environment values
 RUN node scripts/replace-env.js
 
-# Build the application
-RUN npm run build
+# Generate SSL certificates
+RUN node scripts/generate-ssl.js
 
-# Production stage
-FROM nginx:alpine
-
-# Copy built assets from build stage
-COPY --from=build /app/dist/ecommerce-platform-app/browser /usr/share/nginx/html
-
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Add label for HTTPS support
+LABEL com.docker.desktop.port.4200="https://localhost:4200"
 
 # Expose port 4200
 EXPOSE 4200
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"] 
+# Start the application with SSL
+CMD ["npm", "run", "start:ssl"] 
