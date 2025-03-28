@@ -44,3 +44,8 @@ yarn.lock
 
 # Optional: Ignore local configuration files
 /src/assets/config.json
+
+# SSL certificates
+/ssl/
+*.key
+*.crt
