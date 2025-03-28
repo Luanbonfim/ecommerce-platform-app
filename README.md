@@ -56,13 +56,26 @@ You can run this application either locally or using Docker. Choose the method t
    export GOOGLE_CLIENT_ID=your_google_client_id
    ```
 
-3. **Start the development server**:
+3. **Generate SSL certificates** (for HTTPS):
    ```bash
-   ng serve
+   npm run generate-ssl
+   ```
+   This will create self-signed certificates in the `ssl` directory. These certificates are for local development only and will trigger a security warning in your browser.
+
+4. **Start the development server**:
+   ```bash
+   # For HTTP
+   npm start
+   
+   # For HTTPS
+   npm run start:ssl
    ```
 
-4. **Access the application**:
-   Open your browser and navigate to `http://localhost:4200`
+5. **Access the application**:
+   - HTTP: Open your browser and navigate to `http://localhost:4200`
+   - HTTPS: Open your browser and navigate to `https://localhost:4200`
+   
+   > **Note**: When using HTTPS, your browser will show a security warning because we're using a self-signed certificate. This is normal for local development. You can proceed by accepting the security risk in your browser.
 
 ### Running with Docker
 
@@ -123,7 +136,9 @@ The application uses Angular's environment files for configuration. There are tw
 
 ### Available Scripts
 
-- `npm start` - Start the development server
+- `npm start` - Start the development server (HTTP)
+- `npm run start:ssl` - Start the development server with HTTPS
+- `npm run generate-ssl` - Generate SSL certificates for local HTTPS
 - `npm run build` - Build the application for production
 - `npm test` - Run unit tests
 - `npm run lint` - Run linting
