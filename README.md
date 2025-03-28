@@ -92,7 +92,9 @@ You can run this application either locally or using Docker. Choose the method t
    ```
 
 3. **Access the application**:
-   Open your browser and navigate to `http://localhost:4200`
+   Open your browser and navigate to `https://localhost:4200`
+   
+   > **Note**: When using HTTPS, your browser will show a security warning because we're using a self-signed certificate. This is normal for local development. You can proceed by accepting the security risk in your browser.
 
 > **Note**: The environment variables are injected during the build process. If you need to change any values, you'll need to rebuild the image.
 
