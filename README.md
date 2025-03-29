@@ -1,6 +1,6 @@
 # Angular E-Commerce Platform
 
-Welcome to **My Angular E-Commerce Platform**! This is a modern, user-friendly e-commerce platform built with Angular. It features a beautiful homepage, a login system, and integration with Google OAuth, it enables the user to add, edit and delete products to sell online (visual only for now).
+Welcome to **My Angular E-Commerce Platform**! This is a modern, user-friendly e-commerce platform built with Angular. It features a beautiful homepage, a login system, and integration with Google OAuth, it enables the user to add, edit and delete products to sell online.
 
 ![image](https://github.com/user-attachments/assets/c1ba475f-04bf-45a6-aa27-323ffafaed2b)
 ![image](https://github.com/user-attachments/assets/1a20be9a-b435-4ef8-b6f6-e2353207748e)
@@ -8,10 +8,9 @@ Welcome to **My Angular E-Commerce Platform**! This is a modern, user-friendly e
 
 ## Features
 
-- **Beautiful Homepage**: A clean and modern homepage.
+- **Homepage**: A clean and modern homepage.
 - **Login System**: A login form with email and password fields.
 - **Google OAuth Login**: Allows login through google account.
-- **Responsive Design**: The application is fully responsive and works seamlessly on all devices.
 - **Product Management**: Add, edit, and delete products (Admin role required).
 - **Role-Based Access**: Different features available based on user roles.
 
